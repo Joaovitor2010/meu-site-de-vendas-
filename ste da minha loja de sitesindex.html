@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JV Sites - Criação de Sites para Pequenas Empresas</title>
+    <style>
+        /* Estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #0066ff;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0055cc;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0066ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0066ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #0066ff, #5e17eb);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            background-color: white;
+            color: #0066ff;
+            font-weight: 600;
+        }
+
+        .hero-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Pacotes */
+        .packages {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #0066ff;
+            margin: 15px auto 0;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .package-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-width: 280px;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-header {
+            padding: 20px;
+            background-color: #f0f5ff;
+            text-align: center;
+        }
+
+        .package-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .package-price {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0066ff;
+            margin-bottom: 8px;
+        }
+
+        .package-price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .package-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .package-features li {
+            padding: 8px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .package-features li:before {
+            content: '✓';
+            color: #0066ff;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .package-footer {
+            padding: 0 20px 20px;
+            text-align: center;
+        }
+
+        /* Benefícios */
+        .benefits {
+            padding: 80px 0;
+            background-color: #f0f5ff;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #0066ff;
+        }
+
+        .benefit-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .benefit-text {
+            color: #666;
+        }
+
+        /* Depoimentos */
+        .testimonials {
+            padding: 80px 0;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .testimonial-business {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0066ff, #5e17eb);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            background-color: white;
+            color: #0066ff;
+            font-size: 18px;
+            padding: 15px 30px;
+        }
+
+        /* Contato */
+        .contact {
+            padding: 80px 0;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .contact-info a {
+            color: #0066ff;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #0066ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #0055cc;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .packages-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">JV SITES</a>
+                <div class="nav-links">
+                    <a href="#">Início</a>
+                    <a href="#packages">Pacotes</a>
+                    <a href="#benefits">Benefícios</a>
+                    <a href="#contact">Contato</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Sites Profissionais para Pequenas Lojas</h1>
+            <p>Aumente suas vendas e destaque-se da concorrência com um site moderno, responsivo e otimizado para conversão.</p>
+            <a href="#packages" class="btn hero-btn">Ver Pacotes</a>
+        </div>
+    </section>
+
+    <section id="packages" class="packages">
+        <div class="container">
+            <h2 class="section-title">Nossos Pacotes</h2>
+            <div class="packages-grid">
+                <!-- Pacote Básico -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-name">Básico</div>
+                        <div class="package-price">R$ 499,99<span>/único</span></div>
+                        <p>Ideal para pequenos negócios</p>
+                    </div>
+                    <div class="package-content">
+                        <ul class="package-features">
+                            <li>Site de até 3 páginas</li>
+                            <li>Design responsivo</li>
+                            <li>Formulário de contato</li>
+                            <li>Otimização para SEO básico</li>
+                            <li>Integração com redes sociais</li>
+                            <li>Hospedagem por 1 ano</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <a href="https://wa.me/5511932338598?text=Olá!%20Tenho%20interesse%20no%20pacote%20Básico%20de%20site." class="btn">Contratar Agora</a>
+                    </div>
+                </div>
+                
+                <!-- Pacote Profissional -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-name">Profissional</div>
+                        <div class="package-price">R$ 999,99<span>/único</span></div>
+                        <p>Para lojas que querem crescer</p>
+                    </div>
+                    <div class="package-content">
+                        <ul class="package-features">
+                            <li>Site de até 10 páginas</li>
+                            <li>Design responsivo premium</li>
+                            <li>Catálogo de produtos</li>
+                            <li>Otimização avançada para SEO</li>
+                            <li>Integração com WhatsApp</li>
+                            <li>Painel administrativo</li>
+                            <li>Hospedagem por 1 ano</li>
+                            <li>Suporte por 3 meses</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <a href="https://wa.me/5511932338598?text=Olá!%20Tenho%20interesse%20no%20pacote%20Profissional%20de%20site." class="btn">Contratar Agora</a>
+                    </div>
+                </div>
+                
+                <!-- Pacote E-commerce -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-name">E-commerce</div>
+                        <div class="package-price">R$ 2.499,99<span>/único</span></div>
+                        <p>Loja virtual completa</p>
+                    </div>
+                    <div class="package-content">
+                        <ul class="package-features">
+                            <li>Loja virtual completa</li>
+                            <li>Cadastro ilimitado de produtos</li>
+                            <li>Integração com meios de pagamento</li>
+                            <li>Cálculo de frete automático</li>
+                            <li>Painel administrativo completo</li>
+                            <li>Relatórios de vendas</li>
+                            <li>Otimização avançada para SEO</li>
+                            <li>Hospedagem por 1 ano</li>
+                            <li>Suporte por 6 meses</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <a href="https://wa.me/5511932338598?text=Olá!%20Tenho%20interesse%20no%20pacote%20E-commerce." class="btn">Contratar Agora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Por que ter um site?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔍</div>
+                    <h3 class="benefit-title">Seja Encontrado</h3>
+                    <p class="benefit-text">Apareça nos resultados de busca do Google quando clientes procurarem por seus produtos ou serviços.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">⏰</div>
+                    <h3 class="benefit-title">Aberto 24/7</h3>
+                    <p class="benefit-text">Seu site trabalha por você 24 horas por dia, 7 dias por semana, mesmo quando sua loja física está fechada.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Aumente Vendas</h3>
+                    <p class="benefit-text">Clientes que pesquisam online antes de comprar gastam em média 40% mais que os demais.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">📱</div>
+                    <h3 class="benefit-title">Alcance Maior</h3>
+                    <p class="benefit-text">Expanda seu alcance para além do seu bairro e atinja clientes em toda a cidade ou país.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">O que nossos clientes dizem</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Depois que criamos nosso site com a JV Sites, nossas vendas aumentaram em 35%. O investimento se pagou em menos de 3 meses!"</p>
+                <div class="testimonial-author">Maria Silva</div>
+                <div class="testimonial-business">Boutique Elegance</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Profissionalismo e agilidade. Nosso site ficou pronto em apenas 2 semanas e já estamos recebendo elogios dos clientes."</p>
+                <div class="testimonial-author">João Oliveira</div>
+                <div class="testimonial-business">Padaria Sabor & Cia</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Pronto para transformar seu negócio?</h2>
+            <p>Não perca mais clientes para a concorrência. Tenha um site profissional e comece a expandir seu negócio hoje mesmo!</p>
+            <a href="https://wa.me/5511932338598?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20criar%20um%20site%20para%20meu%20negócio." class="btn cta-btn">Solicitar Orçamento</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <p>Estamos prontos para transformar seu negócio com um site profissional.</p>
+                    <p>📧 Email: <a href="mailto:contato@jvsites.com">contato@jvsites.com</a></p>
+                    <p>📱 WhatsApp: <a href="https://wa.me/5511932338598">(11) 93233-8598</a></p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">i</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                    </div>
+                </div>
+                <div class="contact-cta">
+                    <h3>Vamos Conversar?</h3>
+                    <p>Clique no botão abaixo para iniciar uma conversa pelo WhatsApp e receber um orçamento personalizado para o site da sua loja.</p>
+                    <a href="https://wa.me/5511932338598" class="btn">Falar pelo WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">Início</a>
+                    <a href="#packages">Pacotes</a>
+                    <a href="#benefits">Benefícios</a>
+                    <a href="#contact">Contato</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 JV Sites. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
